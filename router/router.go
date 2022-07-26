@@ -24,12 +24,14 @@ func Router(e *echo.Echo) {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
+	quiz := e.Group("/quiz/v1")
+
 	// 新增
-	e.POST("/comment", controller.CreateData)
+	quiz.POST("/comment", controller.CreateData)
 	// 取得
-	e.GET("/comment/:uuid", controller.GetData)
+	quiz.GET("/comment/:uuid", controller.GetData)
 	// 修改
-	e.PUT("/comment/:uuid", controller.UpdateData)
+	quiz.PUT("/comment/:uuid", controller.UpdateData)
 	// 刪除
-	e.DELETE("/comment/:uuid", controller.DelData)
+	quiz.DELETE("/comment/:uuid", controller.DelData)
 }

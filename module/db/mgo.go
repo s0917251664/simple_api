@@ -89,7 +89,7 @@ func UpdateData(uuid string, updatedata *rowdata.RowData) (err error, res *mongo
 	defer session.EndSession(ctx)
 	filter := bson.D{{"uuid", uuid}}
 	doc := bson.D{
-		{"uuid", updatedata.Uuid},
+		{"uuid", uuid},
 		{"parentid", updatedata.Parentid},
 		{"comment", updatedata.Comment},
 		{"author", updatedata.Author},

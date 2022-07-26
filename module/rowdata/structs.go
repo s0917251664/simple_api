@@ -3,7 +3,7 @@ package rowdata
 import "time"
 
 type RowData struct {
-	Uuid     string    `json:"uuid"     bson:"uuid"     validate:"required"`
+	Uuid     string    `json:"uuid"     bson:"uuid"    `
 	Parentid string    `json:"parentid" bson:"parentid" validate:"required"`
 	Comment  string    `json:"comment"  bson:"comment"  validate:"required"`
 	Author   string    `json:"author"   bson:"author"   validate:"required"`

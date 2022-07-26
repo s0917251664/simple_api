@@ -7,6 +7,7 @@ import (
 	rd "simple_api/module/rowdata"
 	"strings"
 
+	"github.com/google/uuid"
 	"github.com/labstack/echo"
 )
 
@@ -22,6 +23,9 @@ func CreateData(c echo.Context) error {
 		fmt.Println(e)
 		return c.JSON(http.StatusBadRequest, e.Error())
 	}
+	// 加入 uuid
+	id := uuid.New()
+	body.Uuid = id.String()
 	// 新增資料
 	if err := db.CreateRowData(body); err != nil {
 		fmt.Println(err)
