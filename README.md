@@ -25,7 +25,7 @@ $ docker  run -d --network mongo-network -p 27017:27017  --name example-mongo mo
 	````
 	* 創造DB
 	````
-db.createUser({ user:'root',pwd:'zxc12345',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
+    db.createUser({ user:'root',pwd:'zxc12345',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
 	use climate;
 	db.rowdata.insert({});
 	````
@@ -40,7 +40,7 @@ $ docker build -t simple_api:v1 .
 - 部署：
 
 ````
-$ docker run  --network mongo-network -p 8080:8080  --name simple_api simple_api:v1
+$ docker run  --network mongo-network -p 192.168.0.100:80:8080  --name simple_api simple_api:v1
 ````
 
 
